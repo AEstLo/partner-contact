@@ -19,9 +19,9 @@ def migrate(env, version):
     openupgrade.rename_fields(
         env,
         [
-            (table_name, "contact_type_left", "left_partner_type"),
-            (table_name, "contact_type_right", "right_partner_type"),
-            (table_name, "partner_category_left", "left_partner_category_id"),
-            (table_name, "partner_category_right", "right_partner_category_id"),
+            ("res.partner.relation.type", table_name, "contact_type_left", "left_partner_type"),
+            ("res.partner.relation.type", table_name, "contact_type_right", "right_partner_type"),
+            ("res.partner.relation.type", table_name, "partner_category_left", "left_partner_category_id"),
+            ("res.partner.relation.type", table_name, "partner_category_right", "right_partner_category_id"),
         ],
     )
