@@ -13,7 +13,9 @@ def migrate(env, version):
     env.cr.execute("DROP VIEW IF EXISTS res_partner_relation_all;")
     env.cr.execute("DROP VIEW IF EXISTS res_partner_relation_type_selection;")
     logger.info("Renaming res_partner_relation_type fields")
-    table_name = env["res.partner.relation.type"]._table
+    # odoo.sh does not recognise this model
+    # table_name = env["res.partner.relation.type"]._table
+    table_name = "res_partner_relation_type"
     openupgrade.rename_fields(
         env,
         [
